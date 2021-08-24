@@ -159,7 +159,7 @@ ef_create_datemap <- function(){
   ibm = read.csv(url, stringsAsFactors = F) %>% dplyr::as_tibble()
   ibm$Date = as.Date(ibm$Date)
 
-  nyse_hols <- rvest::read_html('https://www.nyse.com/markets/hours-calendars')
+  nyse_hols <- xml2::read_html('https://www.nyse.com/markets/hours-calendars')
   nyse_hols <- nyse_hols %>%
     rvest::html_nodes("table") %>%
     .[[1]] %>%

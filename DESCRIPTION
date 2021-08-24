@@ -23,4 +23,5 @@ Imports:
     lubridate,
     tidyr,
     stringr,
-    readr
+    readr,
+    xml2

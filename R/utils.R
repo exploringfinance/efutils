@@ -202,6 +202,8 @@ ef_create_datemap <- function(){
 #' \dontrun{
 #'
 #' ef_date_diff('2020-01-01','2020-12-31',bus_only = FALSE)
+#' ef_date_diff('2020-01-01','2018-12-31',bus_only = FALSE)
+#' ef_date_diff('2020-01-05','2020-01-05',bus_only = FALSE)
 #' ef_date_diff('2020-01-01','2020-12-31',bus_only = TRUE)
 #'
 #' }
@@ -216,9 +218,11 @@ ef_date_diff = function(start,end,bus_only = FALSE){
   bus_filt = if(bus_only){c('yes')}else{c('yes','no')}
 
   ef_datemap %>%
-    dplyr::filter(dayend >= start, dayend <= end, bus_day %in% bus_filt) -> datemap_filt
+    dplyr::filter(dayend >= min(start,end), dayend <= max(start,end), bus_day %in% bus_filt) -> date_list
 
-  return(nrow(datemap_filt)-1)
+  dd = nrow(date_list)-1
+
+  return(ifelse(start<=end,dd,-dd))
 
 }
 

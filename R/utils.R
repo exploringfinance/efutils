@@ -102,12 +102,12 @@ ef_set_opt <- function(){
 #' @examples
 #' \dontrun{
 #'
-#' ef_addcomma_zr(100000.12244)
+#' ef_addcomma(100000.12244)
 #'
 #' }
 ef_addcomma <- function(x, dig = 0){
 
-  format(round(x,dig), big.mark=",")
+  format(round(x, dig), nsmall = dig, big.mark=",")
 
   }
 
@@ -222,4 +222,26 @@ ef_date_diff = function(start,end,bus_only = FALSE){
 
 }
 
+
+
+#' Replace spaces with . in column header and convert to tibble
+#'
+#' @param tibDF Tibble or Dataframe
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#' testdf = dplyr::tibble(`test col` = c(1:10))
+#' ef_tibcol(testdf)
+#'
+#' }
+ef_tibcol <- function(tibDF)
+{
+  tibDF1 <- dplyr::as_tibble(tibDF)
+  colnames(tibDF1) <- gsub(' ','.',colnames(tibDF1))
+  return(tibDF1)
+}
 

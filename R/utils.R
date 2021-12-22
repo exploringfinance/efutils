@@ -10,10 +10,11 @@
 #'
 #' ef_is.nainf(NA)
 #' ef_is.nainf(1)
-#'
+#' ef_is.nainf('string')
 #' }
 ef_is.nainf = function(x){
-  x = (is.na(x) | is.nan(x) | !is.finite(x))
+  x = (is.na(x) | is.nan(x))
+  if(is.numeric(x)) x = (x | !is.finite(x))
   return(x)
 }
 

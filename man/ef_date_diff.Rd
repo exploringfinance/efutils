@@ -23,6 +23,8 @@ Number of business days or all days datediff
 \dontrun{
 
 ef_date_diff('2020-01-01','2020-12-31',bus_only = FALSE)
+ef_date_diff('2020-01-01','2018-12-31',bus_only = FALSE)
+ef_date_diff('2020-01-05','2020-01-05',bus_only = FALSE)
 ef_date_diff('2020-01-01','2020-12-31',bus_only = TRUE)
 
 }

@@ -20,7 +20,7 @@ Add comma to number and round to digits
 \examples{
 \dontrun{
 
-ef_addcomma_zr(100000.12244)
+ef_addcomma(100000.12244)
 
 }
 }

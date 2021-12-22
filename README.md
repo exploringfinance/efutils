@@ -35,6 +35,9 @@ ef_conv_perc(.1234)
 ef_date_diff('2020-01-01','2020-12-31',bus_only = TRUE)
 #> Warning: 1 parsing failure.
 #> row col expected actual
+#>   1  -- a number     —*
+#> Warning: 1 parsing failure.
+#> row col expected actual
 #>   1  -- a number      —
 #> [1] 252
 
